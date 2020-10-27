@@ -1,0 +1,29 @@
+.header {
+    text-align: center;
+}
+
+body {
+    background-color: aqua;
+}
+
+.allLollies {
+    display: flex;
+    justify-content: center;
+}
+
+.lollipop {
+    height: 300px;
+}
+
+.button {
+    /* height: 25px; */
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.createMain {
+    display: flex;
+    justify-content: center;
+    
+}
