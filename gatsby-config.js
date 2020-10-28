@@ -6,5 +6,14 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "Lolly",
+        fieldName: "lolly",
+        url: "http://localhost:8888/.netlify/functions/lolly"
+      }
+    }
+  ],
 }
