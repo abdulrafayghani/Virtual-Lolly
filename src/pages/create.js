@@ -4,7 +4,7 @@ import { Layout } from '../components/Layout/Layout'
 import Lolly from '../components/Lolly/Lolly'
 
 const LollyQuery = gql`{
-        getLolly{
+        getLollies{
             message
         }
 }

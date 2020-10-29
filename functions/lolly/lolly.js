@@ -7,9 +7,7 @@ require('dotenv').config()
 const typeDefs = gql`
   type Query {
       getLollies: [Lolly!]
-  }
-
-
+      getLolly(id: String): Lolly
   }
 
   type Lolly {
@@ -27,19 +25,12 @@ const typeDefs = gql`
   }
 `
 
-const authors = [
-  { id: 1, url: 'https://github.com/gatsbyjs/gatsby-starter-hello-world', desc: "this is a github gatsby official repository" },
-  { id: 2, url: 'https://github.com/gatsbyjs/gatsby-starter-hello-world', desc: "this is a github gatsby official repository" },
-  { id: 3, url: 'https://github.com/gatsbyjs/gatsby-starter-hello-world', desc: "this is a github gatsby official repository" },
-]
-
 const resolvers = {
   Query: {
-    getLolly: async () => {
-      // return authors
-      // // return 'Hello, world!'
+    getLollies: async () => {
       try { 
         const client = new faunadb.Client({ secret: 'fnAD5PWwZpACB9kx4B0lQwRo54WR8YDjAJjfBzmr' })
+
         const result = await client.query(
           q.Map(q.Paginate(q.Match(q.Index('lolly_by_name'))),
           q.Lambda(x => q.Get(x)))
@@ -56,14 +47,10 @@ const resolvers = {
             flavourBottom: d.data.flavourBottom
           }
         })
-        // result.data.map((d) => console.log(d))
-          // result.data.map((d) => console.log(d.message))
-          // return result.data.map((d) => console.log(d))
       } catch (err){
         console.log(err)
       }
     },
-
   },
   Mutation: {
     createLolly: async (_, args) => {

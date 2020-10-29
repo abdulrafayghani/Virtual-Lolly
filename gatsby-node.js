@@ -5,13 +5,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const response = await graphql(`
     query {
       lolly {
-        getLolly {
+        getLollies {
           lollyPath
         }
       }
     }
   `)
-  response.data.lolly.getLolly.forEach(edge => {
+  response.data.lolly.getLollies.forEach(edge => {
     createPage({
       path: `/create/${edge.lollyPath}`,
       component: path.resolve(`./src/templates/newLolly.js`),
