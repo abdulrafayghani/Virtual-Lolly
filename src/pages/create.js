@@ -4,9 +4,9 @@ import { Layout } from '../components/Layout/Layout'
 import Lolly from '../components/Lolly/Lolly'
 
 const LollyQuery = gql`{
-    getLolly {
-        lolly
-    }
+        getLolly{
+            message
+        }
 }
 `
 
@@ -19,9 +19,10 @@ const craeteLollyMutation = gql`
 `
 
 export default function Create(){
-    const { data } = useQuery(LollyQuery)
-    console.log(data)
+    const { data, loading } = useQuery(LollyQuery)
     const [createLolly] = useMutation(craeteLollyMutation)
+    console.log(data)
+
     const [topColor, setTopColor] = useState('#d52358')    
     const [middleColor, setMiddleColor] = useState('#32a852')    
     const [bottomColor, seBottomColor] = useState('#ac39b3') 
