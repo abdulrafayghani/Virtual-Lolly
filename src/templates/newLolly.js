@@ -2,20 +2,15 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/Layout/Layout'
 
-// export const query = graphql`
-
-//       query getLolly($id: String)  {
-//       getLolly(id: $id) {
-//         recipientName
-//         message
-//         senderName
-//         flavourTop
-//         flavourMiddle
-//         flavourBottom
-//         lollyPath        
-//       }
-//     }   
-// `
+export const query = graphql`
+    query getLolly($id: String!) {
+        lolly{
+        getLolly(id: $id) {
+          flavourTop
+        }
+      }
+    }
+  `
 
 const NewLolly = ({ data }) => {
     console.log(data)
