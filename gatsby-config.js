@@ -15,6 +15,7 @@ module.exports = {
         fieldName: "lolly",
         url: "http://localhost:8888/.netlify/functions/lolly"
       }
-    }
+    },
+    
   ],
 }

@@ -6,8 +6,8 @@ require('dotenv').config()
 
 const typeDefs = gql`
   type Query {
-      getLollies: [Lolly!]
-      getLolly(id: String): Lolly
+      getLollies(id: String): [Lolly!]
+      getLolly(id: String): Lolly!
   }
 
   type Lolly {
@@ -31,11 +31,15 @@ const resolvers = {
       try { 
         const client = new faunadb.Client({ secret: 'fnAD5PWwZpACB9kx4B0lQwRo54WR8YDjAJjfBzmr' })
 
+        // const result = await client.query(
+        //   q.Get(q.Match(q.Index('lolly_by_id'), '9HX_HguR1'))
+        //   )
+
         const result = await client.query(
           q.Map(q.Paginate(q.Match(q.Index('lolly_by_name'))),
           q.Lambda(x => q.Get(x)))
         )
-        console.log('res',result.data)
+        console.log('all res',result.data)
         return result.data.map(d => {
           return{ 
             recipientName: d.data.recipientName,
@@ -51,6 +55,37 @@ const resolvers = {
         console.log(err)
       }
     },
+    getLolly: async (id) => {
+      try{
+        const client = new faunadb.Client({ secret: "fnAD5PWwZpACB9kx4B0lQwRo54WR8YDjAJjfBzmr" })
+
+        const result = await client.query(
+          q.Get(q.Match(q.Index('lolly_by_id'), id))
+        )
+
+        // const result = await client.query(
+        //   q.Map(q.Paginate(q.Match(q.Index('lolly_by_id'), 'xWgp_jZ3j')),
+        //     q.Lambda(x => q.Get(x))
+        //   )
+        // )
+        console.log('res',result.data)
+        return result.data
+        // return result.data.map((d) => {
+        //   console.log('d',d.data.message)
+        //   return {
+        //     recipientName: d.data.recipientName,
+        //     senderName: d.data.senderName,
+        //     message: d.data.message,
+        //     lollyPath: d.data.lollyPath,
+        //     flavourTop: d.data.flavourTop,
+        //     flavourMiddle: d.data.flavourMiddle,
+        //     flavourBottom: d.data.flavourBottom
+          // }S
+        // })
+      } catch (err) {
+        console.log(err)
+      }
+    }
   },
   Mutation: {
     createLolly: async (_, args) => {

@@ -3,8 +3,8 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/Layout/Layout'
 
 // export const query = graphql`
-// {
-//     lolly($id: String) {
+
+//       query getLolly($id: String)  {
 //       getLolly(id: $id) {
 //         recipientName
 //         message
@@ -14,12 +14,11 @@ import { Layout } from '../components/Layout/Layout'
 //         flavourBottom
 //         lollyPath        
 //       }
-//     }
-//   }
+//     }   
 // `
 
 const NewLolly = ({ data }) => {
-    console.log(lolly)
+    console.log(data)
     return (
         <div>
             <Layout>

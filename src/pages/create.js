@@ -3,10 +3,17 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { Layout } from '../components/Layout/Layout'
 import Lolly from '../components/Lolly/Lolly'
 
-const LollyQuery = gql`{
+const allLolliesQuery = gql`{
         getLollies{
             message
         }
+}
+`
+const LollyQuery = gql`
+    query getLolly($id: String){
+    getLolly(id: $id){
+            message
+     }
 }
 `
 
@@ -19,9 +26,12 @@ const craeteLollyMutation = gql`
 `
 
 export default function Create(){
-    const { data, loading } = useQuery(LollyQuery)
+    // const { data, loading } = useQuery(LollyQuery)
+    const { data, loading } = useQuery(allLolliesQuery)
+
     const [createLolly] = useMutation(craeteLollyMutation)
-    console.log(data)
+    console.log('d1',data)
+    // console.log('d2',d2)
 
     const [topColor, setTopColor] = useState('#d52358')    
     const [middleColor, setMiddleColor] = useState('#32a852')    
