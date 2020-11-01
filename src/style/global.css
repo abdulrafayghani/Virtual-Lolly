@@ -1,9 +1,12 @@
 .header {
     text-align: center;
+    color: #dadadb;
+    font-family: open-sans,Helvetica,sans-serif;
+    /* font-weight: 300; */
 }
 
 body {
-    background-color: aqua;
+    background-color: #21212b;
 }
 
 .allLollies {
@@ -15,11 +18,19 @@ body {
     height: 300px;
 }
 
-.button {
-    /* height: 25px; */
+.button-div {
+    margin-top: 20px;
+    height: 45px;
     display: flex;
     justify-content: center;
+}
+
+.button {
     border-radius: 5px;
+    background-color: #21212b;
+    border-color: #fa73d9;
+    color: #fa73d9;
+    font-size: 17px;
 }
 
 .createMain {

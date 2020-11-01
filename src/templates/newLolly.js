@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/Layout/Layout'
+import Lolly from '../components/Lolly/Lolly'
 
 export const query = graphql`
 query getLolly($id: String!) {
@@ -23,7 +24,7 @@ const NewLolly = ({ data: { lolly: { getLolly } } }) => {
     return (
         <div>
             <Layout>
-                <p>Your lolly is freezing</p>
+              <Lolly fillLollyTop={flavourTop} fillLollyMiddle={flavourMiddle} fillLollyBottom={flavourBottom } />
             </Layout>
         </div>
     )
