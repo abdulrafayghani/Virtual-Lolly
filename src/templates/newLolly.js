@@ -20,11 +20,21 @@ query getLolly($id: String!) {
 
 const NewLolly = ({ data: { lolly: { getLolly } } }) => {
   const { recipientName, message, senderName, flavourTop, flavourMiddle, flavourBottom }  = getLolly
-    console.log(getLolly)
     return (
         <div>
             <Layout>
-              <Lolly fillLollyTop={flavourTop} fillLollyMiddle={flavourMiddle} fillLollyBottom={flavourBottom } />
+              <div className='lolly'>
+                <div className='giftLolly'>
+                  <Lolly fillLollyTop={flavourTop} fillLollyMiddle={flavourMiddle} fillLollyBottom={flavourBottom } />
+                </div>
+                </div>
+                <div className='info'>
+                  <div className='details'>
+                    <p id="recipient" className='recipient'> {recipientName} </p>
+                    <div id='message' className='message'> {message} </div>
+                    <p id='from' className='from'> — {senderName} </p> 
+                  </div>
+                </div>
             </Layout>
         </div>
     )

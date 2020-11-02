@@ -8,7 +8,7 @@ export default function Home() {
   return(
     <div>
       <Layout >
-        <div className='lollyMain'>
+        <div className={style}>
           <div className='allLollies'>
             <Lolly fillLollyTop='pink' fillLollyMiddle='yellow' fillLollyBottom='red' />
             <Lolly fillLollyTop='pink' fillLollyMiddle='yellow' fillLollyBottom='red' />
@@ -17,7 +17,7 @@ export default function Home() {
             <Lolly fillLollyTop='pink' fillLollyMiddle='yellow' fillLollyBottom='red' />
           </div>
           <div className='button-div' >
-            <button className='button' onClick={() => navigate('/create')}>
+            <button className='btn' onClick={() => navigate('/create')}>
               Create a new lolly to send a friend
             </button>
           </div>

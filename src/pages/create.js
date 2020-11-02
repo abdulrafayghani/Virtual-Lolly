@@ -38,32 +38,45 @@ export default function Create(){
     return(
         <div>
         <Layout>
-            <div className='createMain'>
-                <div>
-                    <Lolly fillLollyTop={topColor} fillLollyMiddle={middleColor} fillLollyBottom={bottomColor} />
-                </div>
-                <div>
-                    <input name='flavourTop' type='color' value={topColor} onChange={(e) => setTopColor(e.target.value)}  />
-                    <input name='flavourMiddle' type='color' value={middleColor} onChange={(e) => setMiddleColor(e.target.value)} />
-                    <input name='flavourBottom' type='color' value={bottomColor} onChange={(e) => seBottomColor(e.target.value)} />
-                </div>
-                <div >
-                        <label>
-                            To
+            <form name='new-lolly' action='/new' method='POST'>
+                <div className='lolly'>
+                    <div className='giftLolly'>
+                        <Lolly fillLollyTop={topColor} fillLollyMiddle={middleColor} fillLollyBottom={bottomColor} />
+                    </div>
+                    <div className='falvours'>
+                        <label id='flavourTop' className='pickerLabel'>
+                            <input type='color' className="colourpicker" id="flavourTop" name="flavourTop" value={topColor} onChange={(e) =>setTopColor(e.target.value)} />
                         </label>
-                        <input type='text' ref={recipientName} />
-                        <label>
-                            Say something nice
+                        <label id='flavourTop' className='pickerLabel'>
+                            <input type='color' className="colourpicker" id="falvourMidlle" name="falvourMidlle" value={middleColor} onChange={(e) =>setMiddleColor(e.target.value)} />
+                        </label>                        <label id='flavourTop' className='pickerLabel'>
+                            <input type='color' className="colourpicker" id="flavourBottom" name="flavourBottom" value={bottomColor} onChange={(e) =>seBottomColor(e.target.value)} />
                         </label>
-                        <input type='text' ref={message} />
-                        <label>
-                            From
-                        </label>
-                        <input type='text' ref={senderName} />
+                    </div>
+                    <div className='info'>
+                        <div className='details'>
+                            <p>
+                                <label htmlFor='recipientName' >To</label>
+                                <input type="text" id="recipientName" name="recipientName" placeholder="From" />
+                            </p>
+                            <div className='message'>
+                                <label htmlFor='recipientName'>
+                                    Say Something Nice
+                                </label>
+                                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                            </div>
+                            <p>
+                                <label htmlFor='recipientName'>From</label>
+                                <input type="text" id="sendersName" name="sendersName" placeholder="from your friend..." />
+                            </p>
+                        </div>
+                        <input type="submit" onClick={submitLollyForm} />
+
+                    </div>
                 </div>
-                <input type='button' onClick={submitLollyForm} />
-            </div>
+            </form>
         </Layout>
-    </div>    )
+    </div>    
+    )
 }
 
