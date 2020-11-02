@@ -51,17 +51,15 @@ const resolvers = {
         console.log(err)
       }
     },
-    getLolly: async (_,args) => {
+    getLolly: async (_,{ id }) => {
       console.log('getlollyid',args.id)
       try{
         const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET })
 
         const result = await client.query(
-          q.Get(q.Match(q.Index('lolly_by_id'), args.id))
+          q.Get(q.Match(q.Index('lolly_by_id'), id))
         )
-
         return result.data
-
       } catch (err) {
         console.log(err)
       }
@@ -79,7 +77,6 @@ const resolvers = {
             data: args
           })
         )
-        console.log('result',result)
         return result.data
       } catch (err){
         console.log(err)
