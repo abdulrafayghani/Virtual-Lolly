@@ -2,11 +2,18 @@ import React, { useRef, useState } from 'react'
 import { gql, useMutation } from "@apollo/client";
 import { Layout } from '../components/Layout/Layout'
 import Lolly from '../components/Lolly/Lolly'
+import Section from '../components/Section/Section';
 
 const createLollyMutation = gql`
     mutation createLolly($recipientName: String!, $message: String!, $senderName: String!, $flavourTop: String!, $flavourMiddle: String!,$flavourBottom: String!) {
         createLolly(recipientName: $recipientName, message: $message, senderName: $senderName, flavourTop: $flavourTop, flavourMiddle: $flavourMiddle, flavourBottom: $flavourBottom) {
             lollyPath
+            recipientName
+            message
+            senderName
+            flavourTop
+            flavourMiddle
+            flavourBottom
         }
     }
 `
@@ -33,16 +40,16 @@ export default function Create(){
                 flavourBottom: bottomColor 
             }
         })
-         const { lollyPath } = result.data.createLolly
+         const { lollyPath } = await result.data.createLolly
          setPath(lollyPath)
     }
 
     return(
         <div>
-        <Layout>
-            { path ? (
-                <p style={{color:'wheat'}}> your link {path} </p>
+            { path ? ( 
+                <Section recipientName={recipientName.current.value} message={message.current.value} senderName={senderName.current.value} flavourTop={topColor} flavourMiddle={middleColor} flavourBottom={bottomColor} />
             ) : (
+                <Layout>
                 <div className='lolly'>
                     <div className='giftLolly'>
                         <Lolly fillLollyTop={topColor} fillLollyMiddle={middleColor} fillLollyBottom={bottomColor} />
@@ -77,8 +84,8 @@ export default function Create(){
                         <input type="submit" onClick={submitLollyForm} />
                     </div>
                 </div>
-                )}
         </Layout>
+        )}
     </div>    
     )
 }

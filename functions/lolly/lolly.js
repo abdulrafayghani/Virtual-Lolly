@@ -35,7 +35,6 @@ const resolvers = {
           q.Map(q.Paginate(q.Match(q.Index('lolly_by_name'))),
           q.Lambda(x => q.Get(x)))
         )
-        console.log('all res',result.data)
         return result.data.map(d => {
           return{ 
             recipientName: d.data.recipientName,
@@ -52,7 +51,6 @@ const resolvers = {
       }
     },
     getLolly: async (_,{ id }) => {
-      console.log('getlollyid',args.id)
       try{
         const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET })
 
