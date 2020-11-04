@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server-lambda')
+const { default: Axios } = require('axios')
 const faunadb = require('faunadb'),
   q = faunadb.query
 const shortid = require('shortid')
@@ -29,7 +30,7 @@ const resolvers = {
   Query: {
     getLollies: async () => {
       try { 
-        const client = new faunadb.Client({ secret: 'fnAD5PWwZpACB9kx4B0lQwRo54WR8YDjAJjfBzmr' })
+        const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET })
 
         const result = await client.query(
           q.Map(q.Paginate(q.Match(q.Index('lolly_by_name'))),
@@ -57,6 +58,11 @@ const resolvers = {
         const result = await client.query(
           q.Get(q.Match(q.Index('lolly_by_id'), id))
         )
+
+        Axios 
+          .post('https://api.netlify.com/build_hooks/5fa29d3a752c9690be629a1b').
+          then(res => console.log(res))
+          .catch(err => console.log(err))
         return result.data
       } catch (err) {
         console.log(err)
@@ -68,6 +74,7 @@ const resolvers = {
       try {
         const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET })
         const id = shortid.generate()
+        console.log(id)
         args.lollyPath = id
 
         const result = await client.query(

@@ -79,6 +79,10 @@ h1.title a {
   } */
 }
 
+.lollipop {
+  height: 350px;
+}
+
 .subtitle {
   font-size: 1em;
   font-style: italic;

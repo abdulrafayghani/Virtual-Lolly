@@ -22,9 +22,9 @@ export default function Create(){
     const [createLolly] = useMutation(createLollyMutation)
     const [path, setPath] = useState('')
 
-    const [topColor, setTopColor] = useState('#d52358')    
-    const [middleColor, setMiddleColor] = useState('#32a852')    
-    const [bottomColor, seBottomColor] = useState('#ac39b3') 
+    const [topColor, setTopColor] = useState('#e97393')    
+    const [middleColor, setMiddleColor] = useState('#d23a62')    
+    const [bottomColor, seBottomColor] = useState('#bb1161') 
     const recipientName = useRef()
     const message = useRef()
     const senderName = useRef()
@@ -40,14 +40,14 @@ export default function Create(){
                 flavourBottom: bottomColor 
             }
         })
-         const { lollyPath } = await result.data.createLolly
+         const { lollyPath } = result.data.createLolly
          setPath(lollyPath)
     }
 
     return(
         <div>
             { path ? ( 
-                <Section recipientName={recipientName.current.value} message={message.current.value} senderName={senderName.current.value} flavourTop={topColor} flavourMiddle={middleColor} flavourBottom={bottomColor} />
+                <Section lollyPath={path} recipientName={recipientName.current.value} message={message.current.value} senderName={senderName.current.value} flavourTop={topColor} flavourMiddle={middleColor} flavourBottom={bottomColor} />
             ) : (
                 <Layout>
                 <div className='lolly'>

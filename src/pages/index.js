@@ -10,11 +10,11 @@ export default function Home() {
       <Layout >
         <div className={style}>
           <div className='allLollies'>
-            <Lolly fillLollyTop='pink' fillLollyMiddle='yellow' fillLollyBottom='red' />
-            <Lolly fillLollyTop='pink' fillLollyMiddle='yellow' fillLollyBottom='red' />
-            <Lolly fillLollyTop='pink' fillLollyMiddle='yellow' fillLollyBottom='red' />
-            <Lolly fillLollyTop='pink' fillLollyMiddle='yellow' fillLollyBottom='red' />
-            <Lolly fillLollyTop='pink' fillLollyMiddle='yellow' fillLollyBottom='red' />
+            <Lolly fillLollyTop='#e97393' fillLollyMiddle='#d23a62' fillLollyBottom='#bb1161' />
+            <Lolly fillLollyTop='#97e665' fillLollyMiddle='#8ccb4c' fillLollyBottom='#a8d838' />
+            <Lolly fillLollyTop='#feefd6' fillLollyMiddle='#b65ae4' fillLollyBottom='#c116c1' />
+            <Lolly fillLollyTop='#cd2753' fillLollyMiddle='#d5cfd1' fillLollyBottom='#5ba3da' />
+            <Lolly fillLollyTop='#ed265b' fillLollyMiddle='#f77249' fillLollyBottom='#f5c64d' />
           </div>
           <div className='button-div' >
             <button className='btn' onClick={() => navigate('/create')}>
