@@ -15,8 +15,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
-    "apollo-server-lambda": "^2.18.2",
-    "graphql": "^14.1.1",
+    "apollo-link-http": "^1.5.17",
     "dotenv": "^8.2.0",
     "faunadb": "^3.0.1",
     "gatsby": "^2.24.85",

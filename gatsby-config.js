@@ -3,7 +3,10 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
-require('dotenv').config()
+const { createHttpLink } = require('apollo-link-http')
+const fetch = require('node-fetch')
+ require('dotenv').config()
+
 
 module.exports = {
   /* Your site config here */
@@ -13,10 +16,11 @@ module.exports = {
       options: {
         typeName: "Lolly",
         fieldName: "lolly",
-        url: process.env.CONFIG_URL
+        // url: `http://localhost:8888/.netlify/functions/lolly`,
+        createLink: () =>  {
+          createHttpLink({ uri: `/.netlify/functions/lolly`, fetch })
+        }
       },
-      
     },
-    
   ],
 }
