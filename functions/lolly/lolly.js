@@ -52,7 +52,7 @@ const resolvers = {
     },
     getLolly: async (_,{ id }) => {
       try{
-        const client = new faunadb.Client({ secret: 'fnAD5PWwZpACB9kx4B0lQwRo54WR8YDjAJjfBzmr' })
+        const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET })
 
         const result = await client.query(
           q.Get(q.Match(q.Index('lolly_by_id'), id))
@@ -66,7 +66,7 @@ const resolvers = {
   Mutation: {
     createLolly: async (_, args) => {
       try {
-        const client = new faunadb.Client({ secret: 'fnAD5PWwZpACB9kx4B0lQwRo54WR8YDjAJjfBzmr' })
+        const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET })
         const id = shortid.generate()
         args.lollyPath = id
 
