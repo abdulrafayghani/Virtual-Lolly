@@ -59,10 +59,6 @@ const resolvers = {
           q.Get(q.Match(q.Index('lolly_by_id'), id))
         )
 
-        Axios 
-          .post('https://api.netlify.com/build_hooks/5fa29d3a752c9690be629a1b').
-          then(res => console.log(res))
-          .catch(err => console.log(err))
         return result.data
       } catch (err) {
         console.log(err)
@@ -82,6 +78,12 @@ const resolvers = {
             data: args
           })
         )
+
+        Axios 
+        .post('https://api.netlify.com/build_hooks/5fa29d3a752c9690be629a1b').
+        then(res => console.log(res))
+        .catch(err => console.log(err))
+        
         return result.data
       } catch (err){
         console.log(err)
