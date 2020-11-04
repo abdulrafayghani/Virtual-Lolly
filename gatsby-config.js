@@ -3,11 +3,8 @@
 //  *
 //  * See: https://www.gatsbyjs.com/docs/gatsby-config/
 //  */
-// const { createHttpLink } = require('apollo-link-http')
-// const fetch = require('node-fetch')
 //  require('dotenv').config()
-
-
+ 
 // module.exports = {
 //   /* Your site config here */
 //   plugins: [
@@ -16,10 +13,7 @@
 //       options: {
 //         typeName: "Lolly",
 //         fieldName: "lolly",
-//         // url: `http://localhost:8888/.netlify/functions/lolly`,
-//         createLink: () =>  {
-//           createHttpLink({ uri: `/.netlify/functions/lolly`, fetch })
-//         }
+//         url: `https://virtual-lolly-harg.netlify.app/.netlify/functions/lolly`,
 //       },
 //     },
 //   ],
