@@ -12,7 +12,7 @@ module.exports = {
       options: {
         typeName: "Lolly",
         fieldName: "lolly",
-        url: "http://localhost:8888/.netlify/functions/lolly"
+        url: "/.netlify/functions/lolly"
       },
       
     },
