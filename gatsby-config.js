@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+require('dotenv').config()
 
 module.exports = {
   /* Your site config here */
@@ -12,7 +13,7 @@ module.exports = {
       options: {
         typeName: "Lolly",
         fieldName: "lolly",
-        url: "/.netlify/functions/lolly"
+        url: process.env.CONFIG_URL
       },
       
     },
