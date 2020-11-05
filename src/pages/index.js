@@ -2,13 +2,12 @@ import React from "react"
 import { navigate } from 'gatsby'
 import { Layout } from "../components/Layout/Layout"
 import Lolly from "../components/Lolly/Lolly"
-import style from '../style/global.css'
 
 export default function Home() {
   return(
     <div>
       <Layout >
-        <div className={style}>
+        <div>
           <div className='allLollies'>
             <Lolly fillLollyTop='#e97393' fillLollyMiddle='#d23a62' fillLollyBottom='#bb1161' />
             <Lolly fillLollyTop='#97e665' fillLollyMiddle='#8ccb4c' fillLollyBottom='#a8d838' />

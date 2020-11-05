@@ -17,8 +17,8 @@ const Section = ({ lollyPath, recipientName, message, senderName, flavourTop, fl
                 </div>
                 </div>
                 <div className='info'>
+                  <p className='share'  > share this link: {`${url}create/${lollyPath}`} </p>
                   <div className='details'>
-                    <p className='from' style={{color: '#feefd6'}} > share this link: {`${url}create/${lollyPath}`} </p>
                     <p id="recipient" className='recipient'> {recipientName} </p>
                     <div id='message' className='message'> {message} </div>
                     <p id='from' className='from'> — {senderName} </p> 
