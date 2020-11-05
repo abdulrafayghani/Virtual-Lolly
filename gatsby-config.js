@@ -13,8 +13,7 @@ module.exports = {
       options: {
         typeName: "Lolly",
         fieldName: "lolly",
-        // url: process.env.CONFIG_URL,
-        url: 'http://localhost:8888/.netlify/functions/lolly'
+        url: process.env.CONFIG_URL,
       },
     },
   ],
