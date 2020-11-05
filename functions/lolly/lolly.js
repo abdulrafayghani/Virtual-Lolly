@@ -70,7 +70,6 @@ const resolvers = {
       try {
         const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET })
         const id = shortid.generate()
-        console.log(id)
         args.lollyPath = id
 
         const result = await client.query(
@@ -80,8 +79,8 @@ const resolvers = {
         )
 
         Axios 
-        .post('https://api.netlify.com/build_hooks/5fa29d3a752c9690be629a1b').
-        then(res => console.log(res))
+        .post(process.env.NETLIFY_BUILD_HOOK)
+        .then(res => console.log(res))
         .catch(err => console.log(err))
         
         return result.data
