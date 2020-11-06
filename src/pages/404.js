@@ -19,7 +19,7 @@ query getLolly($id: String!) {
 `
 
 const Page404 =  ({ location }) => {
-    const pathId =  location.pathname.slice(8, 17)
+    const pathId =  location.pathname.slice(8)
     const { loading, error, data } = useQuery(getLollyById, {
         variables: {
             id: pathId
