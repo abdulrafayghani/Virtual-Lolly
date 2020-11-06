@@ -52,6 +52,7 @@ const resolvers = {
       }
     },
     getLolly: async (_,{ id }) => {
+      console.log(id)
       try{
         const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET })
 
@@ -78,10 +79,10 @@ const resolvers = {
           })
         )
 
-        Axios 
-        .post(process.env.NETLIFY_BUILD_HOOK)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        // Axios 
+        // .post(process.env.NETLIFY_BUILD_HOOK)
+        // .then(res => console.log(res))
+        // .catch(err => console.log(err))
         
         return result.data
       } catch (err){
