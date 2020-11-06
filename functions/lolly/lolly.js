@@ -79,10 +79,10 @@ const resolvers = {
           })
         )
 
-        // Axios 
-        // .post(process.env.NETLIFY_BUILD_HOOK)
-        // .then(res => console.log(res))
-        // .catch(err => console.log(err))
+        Axios 
+        .post(process.env.NETLIFY_BUILD_HOOK)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
         
         return result.data
       } catch (err){
