@@ -68,17 +68,17 @@ export default function Create(){
                         <div className='details'>
                             <p>
                                 <label htmlFor='recipientName' >To</label>
-                                <input type="text" id="recipientName" name="recipientName" placeholder="From" ref={recipientName} />
+                                <input type="text" required id="recipientName" name="recipientName" placeholder="From" ref={recipientName} />
                             </p>
                             <div className='message'>
                                 <label htmlFor='recipientName'>
                                     Say Something Nice
                                 </label>
-                                <textarea name="message" id="message" cols="30" rows="10" ref={message} />
+                                <textarea name="message" required id="message" cols="30" rows="10" ref={message} />
                             </div>
                             <p>
                                 <label htmlFor='recipientName'>From</label>
-                                <input type="text" placeholder="from your friend..."  ref={senderName} />
+                                <input type="text" required placeholder="from your friend..."  ref={senderName} />
                             </p>
                         </div>
                         <input type="submit" onClick={submitLollyForm} />
